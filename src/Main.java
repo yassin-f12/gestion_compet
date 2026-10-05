@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Competition competition = new Competition("hell", 2026);
-        competition.chargerAthletes();
+        competition.chargerAthletes(management);
         int option = 0;
 
         //ajouter "afficher liste athlete"
@@ -50,6 +50,7 @@ public class Main {
 
                     Athlete athlete = new Athlete(nom, prenom, pays, age, equipe);
                     management.createInfos(athlete);
+                    competition.sauvegarderAthlete(athlete);
 
                     System.out.println( nom + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
                     System.out.print("Appuyez sur entrée pour confirmer...");

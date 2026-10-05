@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.List;
+import java.nio.file.StandardOpenOption;
 
 public class Competition {
     public String nom;
@@ -42,7 +43,7 @@ public class Competition {
 
     }
 
-    public void chargerAthletes() {
+    public void chargerAthletes(GestionAthlete management) {
         Path chemin = Paths.get("data/athletes.txt");
 
         try {
@@ -60,11 +61,33 @@ public class Competition {
 
                 Athlete athlete = new Athlete(nom, prenom, pays, age, equipe);
 
-                this.athletes.add(athlete);
+                management.createInfos(athlete);
             }
 
         } catch (Exception e) {
             System.out.println("Erreur lors de la lecture du fichier.");
+        }
+    }
+
+    public void sauvegarderAthlete(Athlete athlete) {
+        Path chemin = Paths.get("data/athletes.txt");
+
+        String ligne = athlete.nom + ";" +
+                athlete.prenom + ";" +
+                athlete.pays + ";" +
+                athlete.age + ";" +
+                athlete.equipe +
+                System.lineSeparator();
+
+        try {
+            Files.writeString(
+                    chemin,
+                    ligne,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la sauvegarde.");
         }
     }
 
