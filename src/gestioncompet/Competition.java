@@ -1,12 +1,13 @@
 package gestioncompet;
+import java.util.ArrayList;
 
 public class Competition {
     String nom;
     int annee;
-    ArrayList<String> athletes;
-    ArrayList<String> epreuves;
+    ArrayList<Athlete> athletes;
+    ArrayList<Epreuve> epreuves;
 
-    Etudiant(String nom, String prenom) {
+    Competition(String nom, int annee) {
         this.nom = nom;
         this.annee = annee;
         this.athletes = new ArrayList<>();
@@ -21,5 +22,14 @@ public class Competition {
         this.epreuves.add(e);
     }
 
+    void afficherResultatsEpreuve(String nomEpreuve) {
+
+    }
+    void classementGeneral() {
+
+    }
+    void afficherClassementGeneral() {
+
+    }
 
 }
