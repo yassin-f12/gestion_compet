@@ -8,7 +8,7 @@ public class Competition {
 
     Etudiant(String nom, String prenom) {
         this.nom = nom;
-        this.annee = anee;
+        this.annee = annee;
         this.athletes = new ArrayList<>();
         this.epreuves = new ArrayList<>();
     }
