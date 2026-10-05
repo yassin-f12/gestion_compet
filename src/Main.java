@@ -2,9 +2,11 @@ import java.util.Scanner;
 import gestioncompet.Competition;
 import gestioncompet.Athlete;
 import gestioncompet.Epreuve;
+import gestioncompet.GestionAthlete;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+     static GestionAthlete management = new GestionAthlete();
 
     public static void main(String[] args) {
 
@@ -26,7 +28,7 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    // appel de methode voir athlète
+                    management.showAllInfos();
                     break;
                 case 2: // add athlète
                     System.out.print("Nom de l'athlète : ");
@@ -46,7 +48,7 @@ public class Main {
                     String equipe = sc.nextLine();
 
                     Athlete athlete = new Athlete(nom, prenom, pays, age, equipe);
-                    competition.ajouterAthlete(athlete);
+                    management.createInfos(athlete);
 
                     System.out.println( nom + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
                     System.out.print("Appuyez sur entrée pour confirmer...");
