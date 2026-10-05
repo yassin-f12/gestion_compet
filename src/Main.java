@@ -6,22 +6,27 @@ import gestioncompet.GestionAthlete;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
-     static GestionAthlete management = new GestionAthlete();
+    static GestionAthlete management = new GestionAthlete();
 
     public static void main(String[] args) {
 
+        String searchValue;
+
         Competition competition = new Competition("hell", 2026);
-        int option = 0;
+        int option = 1;
 
         //ajouter "afficher liste athlete"
-        while (option !=6) {
+        while (option !=0) {
             System.out.println("--------------------------------");
             System.out.println("1 - Voir tous les athlètes disponible");
             System.out.println("2 - Ajouter un athlète à la compétition");
             System.out.println("3 - Ajouter une épreuve");
             System.out.println("4 - Afficher les résultats d'une épreuve");
             System.out.println("5 - Afficher le classement général");
-            System.out.println("6 - Quitter");
+            System.out.println("6 - Rechercher un athlete par le nom");
+            System.out.println("7 - Rechercher un athlete par le pays");
+            System.out.println("8 - Rechercher un athlete par L'equipe");
+            System.out.println("0 - Quitter");
 
             option = sc.nextInt();
             sc.nextLine();
@@ -83,7 +88,25 @@ public class Main {
                     break;
                 case 5: // read classement
                     break;
-                case 6: // quit
+
+                case 6:
+                    System.out.print("Entrez le nom de l'athlète : ");
+                    searchValue = sc.nextLine();
+                    management.showOneInfos(searchValue);
+                    break;
+
+                case 7:
+                    System.out.print("Entrez le nom du pays : ");
+                    searchValue = sc.nextLine();
+                    management.filterByCoutry(searchValue);
+                    break;
+
+                case 8:
+                    System.out.print("Entrez le nom de l'équipe : ");
+                    searchValue = sc.nextLine();
+                    management.filterByEquipe(searchValue);
+                    break;
+                case 0: // quit
                     System.out.println("Au revoir !");
                     break;
             }
