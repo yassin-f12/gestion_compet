@@ -23,6 +23,40 @@ public class GestionAthlete {
         }
     }
 
+    public void filterByCoutry(String pays) {
+        for (Athlete user : this.users) {
+            if (user.pays.equals(pays)) {
+                System.out.println(
+                        user.nom + " " +
+                                user.prenom + "\n" +
+                                user.age + "\n" +
+                                user.pays + "\n" +
+                                user.equipe
+                );
+                return;
+            } else {
+                System.out.println("Pays non trouvé.");
+            }
+        }
+    }
+
+    public void filterByEquipe(String equipe) {
+        for (Athlete user : this.users) {
+            if (user.equipe.equals(equipe)) {
+                System.out.println(
+                        user.nom + " " +
+                                user.prenom + "\n" +
+                                user.age + "\n" +
+                                user.pays + "\n" +
+                                user.equipe
+                );
+                return;
+            } else {
+                System.out.println("Equipe non trouvé.");
+            }
+        }
+    }
+
     public void deletInfos(String name) {
         for (Athlete user : this.users) {
             if (user.nom.equals(name) || user.prenom.equals(name)) {
