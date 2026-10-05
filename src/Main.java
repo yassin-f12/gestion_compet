@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner = new Scanner(system.in);
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -10,7 +10,7 @@ public class Main {
         while (option !=5) {
             // println chocie
 
-            option = scanner.nextInt();
+            option = sc.nextInt();
 
             switch (option) {
                 case 1:
