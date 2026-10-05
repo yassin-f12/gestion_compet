@@ -14,11 +14,11 @@ public class Competition {
         this.epreuves = new ArrayList<>();
     }
 
-    public void ajouterAthlete(String a) {
+    public void ajouterAthlete(Athlete a) {
         this.athletes.add(a);
     }
 
-    public void ajouterEpreuve(String e) {
+    public void ajouterEpreuve(Epreuve e) {
         this.epreuves.add(e);
     }
 

@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import gestioncompet.Competition;
+import gestioncompet.Athlete;
+import gestioncompet.Epreuve;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
@@ -28,28 +30,54 @@ public class Main {
                     break;
                 case 2: // add athlète
                     System.out.print("Nom de l'athlète : ");
-                    String a = sc.nextLine();
-                    // remplacer (a) par add atlete
-                    competition.ajouterAthlete(a);
-                    System.out.println( a + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
+                    String nom = sc.nextLine();
+
+                    System.out.print("Prénom : ");
+                    String prenom = sc.nextLine();
+
+                    System.out.print("Pays : ");
+                    String pays = sc.nextLine();
+
+                    System.out.print("Âge : ");
+                    int age = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Équipe : ");
+                    String equipe = sc.nextLine();
+
+                    Athlete athlete = new Athlete(nom, prenom, pays, age, equipe);
+                    competition.ajouterAthlete(athlete);
+
+                    System.out.println( nom + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
                     System.out.print("Appuyez sur entrée pour confirmer...");
                     sc.nextLine();
                     break;
                 case 3: // add epreuve
                     System.out.print("Nom de l'épreuve : ");
-                    String e = sc.nextLine();
+                    String nomEpreuve = sc.nextLine();
 
-                    competition.ajouterEpreuve(e);
-                    System.out.println( e + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
+                    System.out.print("Type (individuel/equipe) : ");
+                    String type = sc.nextLine();
+
+                    System.out.print("Unité (secondes/metres/points) : ");
+                    String unite = sc.nextLine();
+
+                    System.out.print("Sens du classement (ASC/DESC) : ");
+                    String sensTri = sc.nextLine();
+
+                    Epreuve epreuve = new Epreuve(nomEpreuve, type, unite, sensTri);
+                    competition.ajouterEpreuve(epreuve);
+
+                    System.out.println( nomEpreuve + " ajouté à la " + competition.nom + " " + competition.annee + " avec succès !");
                     System.out.print("Appuyez sur entrée pour confirmer...");
                     sc.nextLine();
 
                     break;
                 case 4: // read result epreuve
                     System.out.print("Nom de l'épreuve : ");
-                    String nomEpreuve = sc.nextLine();
+                    String rechercheEpreuve = sc.nextLine();
 
-                    competition.afficherResultatsEpreuve(nomEpreuve);
+                    competition.afficherResultatsEpreuve(rechercheEpreuve);
                     break;
                 case 5: // read classement
                     break;
