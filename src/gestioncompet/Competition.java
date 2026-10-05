@@ -1,5 +1,11 @@
 package gestioncompet;
+
 import java.util.ArrayList;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.util.List;
+import java.nio.file.StandardOpenOption;
 
 public class Competition {
     public String nom;
@@ -28,11 +34,61 @@ public class Competition {
                 "2. Yohan Blake        : 9.69\n" +
                 "3. Justin Gatlin      : 9.74");
     }
+
     public void classementGeneral() {
 
     }
+
     public void afficherClassementGeneral() {
 
+    }
+
+    public void chargerAthletes(GestionAthlete management) {
+        Path chemin = Paths.get("data/athletes.txt");
+
+        try {
+            List<String> lignes = Files.readAllLines(chemin);
+
+            for (String ligne : lignes) {
+
+                String[] infos = ligne.split(";");
+
+                String nom = infos[0];
+                String prenom = infos[1];
+                String pays = infos[2];
+                int age = Integer.parseInt(infos[3]);
+                String equipe = infos[4];
+
+                Athlete athlete = new Athlete(nom, prenom, pays, age, equipe);
+
+                management.createInfos(athlete);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la lecture du fichier.");
+        }
+    }
+
+    public void sauvegarderAthlete(Athlete athlete) {
+        Path chemin = Paths.get("data/athletes.txt");
+
+        String ligne = athlete.nom + ";" +
+                athlete.prenom + ";" +
+                athlete.pays + ";" +
+                athlete.age + ";" +
+                athlete.equipe +
+                System.lineSeparator();
+
+        try {
+            Files.writeString(
+                    chemin,
+                    ligne,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la sauvegarde.");
+        }
     }
 
 }
