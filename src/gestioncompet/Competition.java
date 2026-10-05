@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Competition {
     public String nom;
     public int annee;
-    public ArrayList<String> athletes;
-    public ArrayList<String> epreuves;
+    public ArrayList<Athlete> athletes;
+    public ArrayList<Epreuve> epreuves;
 
     public Competition(String nom, int annee) {
         this.nom = nom;
