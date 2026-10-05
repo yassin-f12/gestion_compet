@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Competition competition = new Competition("hell", 2026);
+        competition.chargerAthletes();
         int option = 0;
 
         //ajouter "afficher liste athlete"
